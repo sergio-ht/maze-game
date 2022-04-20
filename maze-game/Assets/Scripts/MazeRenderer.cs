@@ -6,9 +6,11 @@ public class MazeRenderer : MonoBehaviour
 {
     [SerializeField]
     private int _rows;
-
     [SerializeField]
     private int _cols;
+
+    [SerializeField]
+    private GameObject wallPrefab;
 
     // Start is called before the first frame update
     void Start()
