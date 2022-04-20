@@ -30,6 +30,6 @@ public class Cell
 
     public int x => _x;
     public int y => _y;
-    public bool visited => visited;
+    public bool visited => _visited;
     public Walls walls => _walls;
 }
