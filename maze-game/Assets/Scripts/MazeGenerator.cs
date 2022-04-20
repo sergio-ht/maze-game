@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MazeGenerator
 {
-    public List<Cell> Generate(int rows, int cols)
+    public static List<Cell> Generate(int rows, int cols)
     {
         List<Cell> maze = new List<Cell>();
         for(int y = 0; y < rows; y++)
