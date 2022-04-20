@@ -8,8 +8,8 @@ public class MazeRenderer : MonoBehaviour
     private int _rows;
     [SerializeField]
     private int _cols;
-
-    private float _cellSize = 1f;
+    [SerializeField]
+    private float _cellSize = 5f;
 
     [SerializeField]
     private GameObject wallPrefab;
@@ -23,32 +23,37 @@ public class MazeRenderer : MonoBehaviour
 
     private void Draw(List<Cell> maze)
     {
-
-        foreach(Cell cell in maze)
+        int i = 0;
+        foreach (Cell cell in maze)
         {
+            Debug.Log(i++ + ": (" + cell.x + ", " + cell.y + ")");
             if (cell.walls.HasFlag(Walls.TOP))
             {
-                Instantiate(wallPrefab, new Vector2(cell.x, cell.y + _cellSize / 2), Quaternion.identity, transform);
+                var wall = Instantiate(wallPrefab, new Vector2(cell.x * _cellSize, (cell.y * _cellSize + _cellSize / 2)), Quaternion.identity, transform);
+                wall.transform.localScale = wall.transform.localScale * _cellSize;
             }
 
-            if(cell.walls.HasFlag(Walls.LEFT))
+            if (cell.walls.HasFlag(Walls.LEFT))
             {
-                Instantiate(wallPrefab, new Vector2(cell.x - _cellSize / 2, cell.y), Quaternion.Euler(0, 0, 90f), transform);
+                var wall = Instantiate(wallPrefab, new Vector2((cell.x * _cellSize - _cellSize / 2), cell.y * _cellSize), Quaternion.Euler(0, 0, 90f), transform);
+                wall.transform.localScale = wall.transform.localScale * _cellSize;
             }
 
-            if(cell.x + 1 == _cols)
+            if (cell.x + 1 == _cols)
             {
                 if (cell.walls.HasFlag(Walls.RIGHT))
                 {
-                    Instantiate(wallPrefab, new Vector2(cell.x + _cellSize / 2, cell.y), Quaternion.Euler(0, 0, 90f), transform);
+                    var wall = Instantiate(wallPrefab, new Vector2((cell.x * _cellSize + _cellSize / 2), cell.y * _cellSize), Quaternion.Euler(0, 0, 90f), transform);
+                    wall.transform.localScale = wall.transform.localScale * _cellSize;
                 }
             }
 
-            if(cell.y == 0)
+            if (cell.y == 0)
             {
                 if (cell.walls.HasFlag(Walls.BOTTOM))
                 {
-                    Instantiate(wallPrefab, new Vector2(cell.x, cell.y - _cellSize / 2), Quaternion.identity, transform);
+                    var wall = Instantiate(wallPrefab, new Vector2(cell.x * _cellSize, (cell.y * _cellSize - _cellSize / 2)), Quaternion.identity, transform);
+                    wall.transform.localScale = wall.transform.localScale * _cellSize;
                 }
             }
         }
