@@ -26,16 +26,16 @@ public class MazeRenderer : MonoBehaviour
         int i = 0;
         foreach (Cell cell in maze)
         {
-            Debug.Log(i++ + ": (" + cell.x + ", " + cell.y + ")");
+            Vector2 position = new Vector2(cell.x, cell.y) * _cellSize;
             if (cell.walls.HasFlag(Walls.TOP))
             {
-                var wall = Instantiate(wallPrefab, new Vector2(cell.x * _cellSize, (cell.y * _cellSize + _cellSize / 2)), Quaternion.identity, transform);
+                var wall = Instantiate(wallPrefab, position + new Vector2(0, _cellSize / 2), Quaternion.identity, transform);
                 wall.transform.localScale = wall.transform.localScale * _cellSize;
             }
 
             if (cell.walls.HasFlag(Walls.LEFT))
             {
-                var wall = Instantiate(wallPrefab, new Vector2((cell.x * _cellSize - _cellSize / 2), cell.y * _cellSize), Quaternion.Euler(0, 0, 90f), transform);
+                var wall = Instantiate(wallPrefab, position + new Vector2(-_cellSize / 2, 0), Quaternion.Euler(0, 0, 90f), transform);
                 wall.transform.localScale = wall.transform.localScale * _cellSize;
             }
 
@@ -43,7 +43,7 @@ public class MazeRenderer : MonoBehaviour
             {
                 if (cell.walls.HasFlag(Walls.RIGHT))
                 {
-                    var wall = Instantiate(wallPrefab, new Vector2((cell.x * _cellSize + _cellSize / 2), cell.y * _cellSize), Quaternion.Euler(0, 0, 90f), transform);
+                    var wall = Instantiate(wallPrefab, position + new Vector2(_cellSize / 2, 0), Quaternion.Euler(0, 0, 90f), transform);
                     wall.transform.localScale = wall.transform.localScale * _cellSize;
                 }
             }
@@ -52,7 +52,7 @@ public class MazeRenderer : MonoBehaviour
             {
                 if (cell.walls.HasFlag(Walls.BOTTOM))
                 {
-                    var wall = Instantiate(wallPrefab, new Vector2(cell.x * _cellSize, (cell.y * _cellSize - _cellSize / 2)), Quaternion.identity, transform);
+                    var wall = Instantiate(wallPrefab, position + new Vector2(0, -_cellSize / 2), Quaternion.identity, transform);
                     wall.transform.localScale = wall.transform.localScale * _cellSize;
                 }
             }
