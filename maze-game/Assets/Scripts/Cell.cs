@@ -30,6 +30,14 @@ public class Cell
 
     public int x => _x;
     public int y => _y;
-    public bool visited => _visited;
-    public Walls walls => _walls;
+    public bool Visited
+    {
+        get => _visited;
+        set => _visited = value;
+    }
+    public Walls Walls
+    {
+        get => _walls;
+        set => _walls = value;
+    }
 }
