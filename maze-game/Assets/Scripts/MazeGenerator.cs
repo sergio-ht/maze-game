@@ -17,4 +17,18 @@ public class MazeGenerator
 
         return maze;
     }
+
+    private static List<Cell> GetUnivisitedNeighbors(List<Cell> maze, Cell cell, int rows, int cols)
+    {
+        List<Cell> neighbors = new List<Cell>();
+
+
+        return neighbors;
+    }
+
+    private static int ListIndex(int x, int y)
+    {
+        return 0;
+    }
+
 }
