@@ -14,7 +14,42 @@ public class MazeGenerator
                 maze.Add(new Cell(x, y));
             }
         }
-        GetUnivisitedNeighbors(maze, new Cell(99, 99), 100, 100);
+
+        return BFS(maze, rows, cols);
+    }
+
+    private static List<Cell> BFS(List<Cell> maze, int rows, int cols)
+    {
+        var stack = new Stack<Cell>();
+        var random = new System.Random(/*seed*/);
+
+        //add first element to stack and mark it as visited
+        stack.Push(maze[0]);
+        maze[0].Visited = true;
+
+        while(stack.Count > 0)
+        {
+            Cell current = stack.Pop();
+
+            //check neighbors
+            var neighbors = GetUnivisitedNeighbors(maze, current, rows, cols);
+            if(neighbors.Count > 0)
+            {
+                stack.Push(current);
+                // get a random neighbor
+                int neighborIndex = random.Next(0, neighbors.Count);
+                Cell next = neighbors[neighborIndex];
+
+                // mark it as visited
+                next.Visited = true;
+
+                // remove walls
+                RemoveWalls(current, next);
+
+                // add to stack
+                stack.Push(next);
+            }
+        }
         return maze;
     }
 
