@@ -69,7 +69,7 @@ public class MazeGenerator
                 int listIndex = ListIndex(newX, newY, rows);
 
                 // add to neighbors if unvisited
-                if (!maze[listIndex].visited)
+                if (!maze[listIndex].Visited)
                 {
                     neighbors.Add(maze[listIndex]);
                 }
