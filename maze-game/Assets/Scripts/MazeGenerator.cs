@@ -26,9 +26,9 @@ public class MazeGenerator
         return neighbors;
     }
 
-    private static int ListIndex(int x, int y)
+    private static int ListIndex(int x, int y, int rows)
     {
-        return 0;
+        return y + x * rows;
     }
 
 }
