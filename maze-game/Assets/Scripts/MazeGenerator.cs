@@ -79,6 +79,34 @@ public class MazeGenerator
         return neighbors;
     }
 
+    private static void RemoveWalls(Cell current, Cell other)
+    {
+        int x = current.x - other.x;
+        int y = current.y - other.y;
+
+        // identify wall to remove
+        if (x == -1)
+        {
+            current.Walls &= ~Walls.RIGHT;
+            other.Walls &= ~Walls.LEFT;
+        }
+        else if (x == 1)
+        {
+            current.Walls &= ~Walls.LEFT;
+            other.Walls &= ~Walls.RIGHT;
+        }
+        else if (y == -1)
+        {
+            current.Walls &= ~Walls.TOP;
+            other.Walls &= ~Walls.BOTTOM;
+        }
+        else if (y == 1)
+        {
+            current.Walls &= ~Walls.BOTTOM;
+            other.Walls &= ~Walls.TOP;
+        }
+    }
+
     private static int ListIndex(int x, int y, int rows)
     {
         return y + x * rows;
