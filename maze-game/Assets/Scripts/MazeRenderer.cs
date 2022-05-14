@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,11 +15,15 @@ public class MazeRenderer : MonoBehaviour
     [SerializeField]
     private GameObject wallPrefab;
 
+    [SerializeField]
+    private GameObject goal;
+
     // Start is called before the first frame update
     void Start()
     {
         var maze = MazeGenerator.Generate(_rows, _cols);
         Draw(maze);
+        drawGoal(maze);
     }
 
     private void Draw(List<Cell> maze)
@@ -56,5 +61,11 @@ public class MazeRenderer : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void drawGoal(List<Cell> maze)
+    {
+        Cell lastCell = maze.Last();
+        goal.transform.position = new Vector2(lastCell.x, lastCell.y) * _cellSize;
     }
 }
