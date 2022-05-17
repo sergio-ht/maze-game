@@ -10,6 +10,16 @@ public class Scene_Manager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void LoadGameEasy()
     {
         SceneManager.LoadScene("GameEasy");

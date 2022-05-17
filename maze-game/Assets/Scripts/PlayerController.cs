@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     private float _speed = 5;
     private float _forwardInput, _horizontalInput;
 
+    [SerializeField]
+    GameObject winPanel;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
         if(collision.tag == "Goal")
         {
             Debug.Log("You win!");
+            winPanel.SetActive(true);
+
         }
     }
 }
