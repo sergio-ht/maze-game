@@ -752,8 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93bfad209f72f24b966ff266ace08e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rows: 6
-  _cols: 6
+  _rows: 20
+  _cols: 20
   _cellSize: 3
   wallPrefab: {fileID: 4581356905946377946, guid: 8a181f9160ff78749bb5da4a5e33195e, type: 3}
   goal: {fileID: 697989456}
