@@ -5315,7 +5315,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.10608803, g: 0.0022427822, b: 0.16981131, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5933,6 +5933,7 @@ MonoBehaviour:
   _cols: 6
   _cellSize: 3
   wallPrefab: {fileID: 4581356905946377946, guid: 8a181f9160ff78749bb5da4a5e33195e, type: 3}
+  floorPrefab: {fileID: 7518986857159155342, guid: 915ff19c0afbd644da49825284a89509, type: 3}
   goal: {fileID: 697989456}
 --- !u!4 &1264941795
 Transform:

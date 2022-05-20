@@ -14,6 +14,8 @@ public class MazeRenderer : MonoBehaviour
 
     [SerializeField]
     private GameObject wallPrefab;
+    [SerializeField]
+    private GameObject floorPrefab;
 
     [SerializeField]
     private GameObject goal;
@@ -30,6 +32,8 @@ public class MazeRenderer : MonoBehaviour
     {
         foreach (Cell cell in maze)
         {
+            var floor = Instantiate(floorPrefab, new Vector2(cell.x, cell.y) * _cellSize, Quaternion.identity, transform);
+
             Vector2 position = new Vector2(cell.x, cell.y) * _cellSize;
             if (cell.Walls.HasFlag(Walls.TOP))
             {
