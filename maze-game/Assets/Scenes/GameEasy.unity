@@ -5824,6 +5824,7 @@ MonoBehaviour:
   particles: {fileID: 168563944}
   winPanel: {fileID: 1338986376}
   winSound: {fileID: 234146043}
+  score: {fileID: 2044459356}
 --- !u!1 &741485178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6387,7 +6388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1338986377
 MonoBehaviour:
   m_ObjectHideFlags: 0
